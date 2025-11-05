@@ -1,16 +1,21 @@
 server:
-  port: 5004
+  port: ${SERVER_PORT:5004}
   servlet:
-    context-path: /post
+    context-path: ${CONTEXT_PATH:/post}
 
 spring:
   application:
-    name: post-service
+    name: ${APP_NAME:post-service}
   data:
     mongodb:
-      uri: mongodb://localhost:30000/post-service?authSource=admin
+      uri: ${MONGODB_URI:mongodb+srv://admintam:21maichitam07@databaseparking2.2bt5tn6.mongodb.net/clone-fb-post-service?appName=DatabaseParking2}
 
 app:
   services:
     profile:
-      url: http://localhost:5002/profile
+      url: ${PROFILE_SERVICE_URL:http://localhost:5002/profile}
+
+logging:
+  level:
+    root: ${LOGGING_LEVEL:INFO}
+    "[com.tam.post]": ${LOGGING_LEVEL:INFO}
