@@ -31,29 +31,27 @@ public class PostService {
     PostMapper postMapper;
     ProfileClient profileClient;
 
-    public PostResponse createPost(PostRequest request){
+    public PostResponse createPost(PostRequest request) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         Post post = Post.builder()
                 .content(request.getContent())
                 .userId(authentication.getName())
-                .createdDate(Instant.now())
-                .modifiedDate(Instant.now())
                 .build();
 
         post = postRepository.save(post);
         return postMapper.toPostResponse(post);
     }
 
-    public PageResponse<PostResponse> getMyPosts(int page, int size){
+    public PageResponse<PostResponse> getMyPosts(int page, int size) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userId = authentication.getName();
 
         UserProfileResponse userProfile = null;
 
-        try{
-            userProfile =  profileClient.getProfile(userId).getResult();
-        }catch (Exception e){
+        try {
+            userProfile = profileClient.getProfile(userId).getResult();
+        } catch (Exception e) {
             log.error("error while getting user profile: ", e);
         }
 
@@ -64,7 +62,7 @@ public class PostService {
         String username = userProfile != null ? userProfile.getUsername() : null;
         var postList = pageData.getContent().stream().map(post -> {
             var postResponse = postMapper.toPostResponse(post);
-            postResponse.setCreated(dateTimeFormatter.format(post.getCreatedDate()));
+            postResponse.setCreated(dateTimeFormatter.format(post.getCreatedAt()));
             postResponse.setUsername(username);
             return postResponse;
         }).toList();

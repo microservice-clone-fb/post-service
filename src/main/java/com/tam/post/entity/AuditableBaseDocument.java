@@ -1,6 +1,8 @@
 package com.tam.post.entity;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
+
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -13,7 +15,7 @@ import java.time.Instant;
  */
 @Getter
 @Setter
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public abstract class AuditableBaseDocument {
@@ -33,7 +35,6 @@ public abstract class AuditableBaseDocument {
     private int publicity; // 0: private, 1: friends, 2: public
 
     private String history;
-
 
     public void addHistoryEntry(String entry) {
         if (this.history == null) {
