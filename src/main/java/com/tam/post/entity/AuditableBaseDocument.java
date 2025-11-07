@@ -13,7 +13,6 @@ import java.time.Instant;
  */
 @Getter
 @Setter
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public abstract class AuditableBaseDocument {
@@ -33,7 +32,6 @@ public abstract class AuditableBaseDocument {
     private int publicity; // 0: private, 1: friends, 2: public
 
     private String history;
-
 
     public void addHistoryEntry(String entry) {
         if (this.history == null) {

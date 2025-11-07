@@ -20,6 +20,6 @@ public class PostResponse {
     String userId;
     String username;
     String created;
-    Instant createdDate;
-    Instant modifiedDate;
+    Instant createdAt;
+    Instant lastUpdatedAt;
 }

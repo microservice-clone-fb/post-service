@@ -8,7 +8,7 @@ spring:
     name: post-service
   data:
     mongodb:
-      uri: mongodb://localhost:30000/post-service?authSource=admin
+      uri: mongodb://localhost:30000/clone-fb-post-service?authSource=admin
 
 app:
   services:
