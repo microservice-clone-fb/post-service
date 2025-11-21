@@ -6,28 +6,19 @@ import lombok.experimental.SuperBuilder;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
-import java.time.Instant;
-
 @Getter
 @Setter
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(value = "post")
+@Document(value = "comment")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Post extends AuditableBaseDocument {
+public class Comment extends AuditableBaseDocument {
     @MongoId
     String id;
+    String postId;
     String userId;
     String content;
-    String mediaUrl; // hình ảnh, video kèm theo
-
-    @Builder.Default
-    int likeCount = 0;
-
-    @Builder.Default
-    int commentCount = 0;
-
-    @Builder.Default
-    int shareCount = 0;
+    String parentCommentId; // null nếu là comment gốc, có giá trị nếu là reply
+    
 }

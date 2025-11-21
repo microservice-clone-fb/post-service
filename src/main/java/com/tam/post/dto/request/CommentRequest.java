@@ -1,10 +1,6 @@
 package com.tam.post.dto.request;
 
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 @Data
@@ -12,7 +8,8 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class PostRequest {
+public class CommentRequest {
     String content;
-    String mediaUrl;
+    String parentCommentId; // null nếu là comment gốc, có giá trị nếu là reply
 }
+

@@ -1,0 +1,69 @@
+[
+  {
+    "_id": "690f307215dda676ca97de77",
+    "userId": "304af409-1bae-44a8-a777-0c41327854c2",
+    "firstName": "Thanh",
+    "lastName": "Tùng",
+    "dateOfBirth": {"$date": "2000-07-22T17:00:00.000Z"},
+    "gender": "Nam",
+    "type": "user",
+    "bio": "Là một lập trình viên đam mê công nghệ, yêu thích coding và chia sẻ kiến thức. Chuyên về Mobile Development và Backend.",
+    "contactInfo": {
+      "email": "thanhtung@example.com",
+      "phone": "+84987654321",
+      "address": "Hà Nội, Việt Nam"
+    },
+    "createdAt": {"$date": "2024-11-01T10:00:00.000Z"},
+    "lastUpdatedAt": {"$date": "2024-11-01T10:00:00.000Z"},
+    "createdBy": "SYSTEM",
+    "lastUpdatedBy": "SYSTEM",
+    "publicity": 2,
+    "history": "SYSTEM_CREATED_GMT+07:00_17:00:00_01/11/2024_Vietnam\nSYSTEM_UPDATED_GMT+07:00_17:00:00_01/11/2024_Vietnam",
+    "_class": "com.tam.profile.entity.UserProfile"
+  },
+  {
+    "_id": "690f307215dda676ca97de78",
+    "userId": "405bf509-2cbf-55b9-b888-1d52438965d3",
+    "firstName": "Minh",
+    "lastName": "Anh",
+    "dateOfBirth": {"$date": "1998-03-15T17:00:00.000Z"},
+    "gender": "Nữ",
+    "type": "user",
+    "bio": "UX/UI Designer và Content Creator. Đam mê thiết kế và sáng tạo nội dung. Yêu thích du lịch và khám phá những điều mới mẻ.",
+    "contactInfo": {
+      "email": "minhanh@example.com",
+      "phone": "+84912345678",
+      "address": "TP. Hồ Chí Minh, Việt Nam"
+    },
+    "createdAt": {"$date": "2024-10-15T08:30:00.000Z"},
+    "lastUpdatedAt": {"$date": "2024-10-15T08:30:00.000Z"},
+    "createdBy": "SYSTEM",
+    "lastUpdatedBy": "SYSTEM",
+    "publicity": 2,
+    "history": "SYSTEM_CREATED_GMT+07:00_15:30:00_15/10/2024_Vietnam\nSYSTEM_UPDATED_GMT+07:00_15:30:00_15/10/2024_Vietnam",
+    "_class": "com.tam.profile.entity.UserProfile"
+  },
+  {
+    "_id": "690f307215dda676ca97de79",
+    "userId": "506cg609-3dcg-66c0-c999-2e63549076e4",
+    "firstName": "Hoàng",
+    "lastName": "Nam",
+    "dateOfBirth": {"$date": "1999-12-10T17:00:00.000Z"},
+    "gender": "Nam",
+    "type": "user",
+    "bio": "Full-stack Developer và Tech Blogger. Chuyên về Web Development, Cloud Computing và DevOps. Luôn học hỏi công nghệ mới.",
+    "contactInfo": {
+      "email": "hoangnam@example.com",
+      "phone": "+84938765432",
+      "address": "Đà Nẵng, Việt Nam"
+    },
+    "createdAt": {"$date": "2024-09-20T14:45:00.000Z"},
+    "lastUpdatedAt": {"$date": "2024-09-20T14:45:00.000Z"},
+    "createdBy": "SYSTEM",
+    "lastUpdatedBy": "SYSTEM",
+    "publicity": 2,
+    "history": "SYSTEM_CREATED_GMT+07:00_21:45:00_20/09/2024_Vietnam\nSYSTEM_UPDATED_GMT+07:00_21:45:00_20/09/2024_Vietnam",
+    "_class": "com.tam.profile.entity.UserProfile"
+  }
+]
+

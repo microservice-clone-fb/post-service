@@ -1,10 +1,12 @@
 package com.tam.post.entity;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.time.Instant;
 
@@ -13,16 +15,18 @@ import java.time.Instant;
  */
 @Getter
 @Setter
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
 public abstract class AuditableBaseDocument {
 
     @CreatedDate
-    private Instant createdAt;
+    @Field("createdDate")
+    private Instant createdDate;
 
     @LastModifiedDate
-    private Instant lastUpdatedAt;
+    @Field("modifiedDate")
+    private Instant modifiedDate;
 
     @CreatedBy
     private String createdBy;

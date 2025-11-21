@@ -1,0 +1,45 @@
+### Base URL
+@baseUrl = http://localhost:5004
+@contentType = application/json
+
+### 1. CREATE - Tạo post mới
+POST {{baseUrl}}/post
+Content-Type: {{contentType}}
+
+{
+  "content": "Đây là bài post đầu tiên của tôi!",
+  "mediaUrl": "https://example.com/images/photo1.jpg"
+}
+
+### 2. CREATE - Tạo post không có media
+POST {{baseUrl}}/post
+Content-Type: {{contentType}}
+
+{
+  "content": "Hôm nay thời tiết thật đẹp! 🌞"
+}
+
+### 3. READ - Lấy tất cả posts (trang 1, 10 items)
+GET {{baseUrl}}/post?page=1&size=10
+
+### 4. READ - Lấy tất cả posts (trang 2, 5 items)
+GET {{baseUrl}}/post?page=2&size=5
+
+### 5. READ - Lấy post theo ID (thay {postId} bằng ID thực tế)
+GET {{baseUrl}}/post/674a1b2c3d4e5f6a7b8c9d0e
+
+### 6. READ - Lấy posts của user hiện tại
+GET {{baseUrl}}/post/my-posts?page=1&size=10
+
+### 7. UPDATE - Cập nhật post (thay {postId} bằng ID thực tế)
+PUT {{baseUrl}}/post/674a1b2c3d4e5f6a7b8c9d0e
+Content-Type: {{contentType}}
+
+{
+  "content": "Nội dung đã được cập nhật!",
+  "mediaUrl": "https://example.com/images/photo-updated.jpg"
+}
+
+### 8. DELETE - Xóa post (thay {postId} bằng ID thực tế)
+DELETE {{baseUrl}}/post/674a1b2c3d4e5f6a7b8c9d0e
+
