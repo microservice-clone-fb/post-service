@@ -11,6 +11,7 @@ import java.time.Instant;
 
 /**
  * Mongo Event Listener để set audit fields
+ * Comment @Component để tắt auditing khi seed data
  */
 @Component
 @RequiredArgsConstructor
@@ -24,15 +25,15 @@ public class AuditListener extends AbstractMongoEventListener<AuditableBaseDocum
         Instant now = Instant.now();
         String currentUser = auditService.getCurrentUsername();
 
-        if (entity.getCreatedAt() == null) {
-            entity.setCreatedAt(now);
+        if (entity.getCreatedDate() == null) {
+            entity.setCreatedDate(now);
             entity.setCreatedBy(currentUser);
 
             String historyEntry = auditService.createHistoryEntry(currentUser, "CREATED", now);
             entity.addHistoryEntry(historyEntry);
         }
 
-        entity.setLastUpdatedAt(now);
+        entity.setModifiedDate(now);
         entity.setLastUpdatedBy(currentUser);
 
         String historyEntry = auditService.createHistoryEntry(currentUser, "UPDATED", now);

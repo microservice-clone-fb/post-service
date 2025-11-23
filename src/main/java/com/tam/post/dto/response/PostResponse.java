@@ -17,9 +17,21 @@ import java.time.Instant;
 public class PostResponse {
     String id;
     String content;
+    String mediaUrl;
     String userId;
     String username;
     String created;
     Instant createdAt;
     Instant lastUpdatedAt;
+    Instant createdDate;
+    Instant modifiedDate;
+
+    // Thống kê
+    int likeCount;
+    int commentCount;
+    int shareCount;
+
+    // Trạng thái của user hiện tại
+    boolean isLiked; // User hiện tại đã like post này chưa
+    boolean isShared; // User hiện tại đã share post này chưa
 }

@@ -1,0 +1,83 @@
+[
+  {
+    "userId": "user123",
+    "content": "Chào mọi người! Đây là bài post đầu tiên của tôi trên mạng xã hội này.",
+    "mediaUrl": "https://example.com/images/photo1.jpg",
+    "createdDate": {"$date": "2024-01-15T10:30:00.000Z"},
+    "modifiedDate": {"$date": "2024-01-15T10:30:00.000Z"},
+    "_class": "com.tam.post.entity.Post"
+  },
+  {
+    "userId": "user456",
+    "content": "Hôm nay thời tiết thật đẹp! 🌞",
+    "mediaUrl": null,
+    "createdDate": {"$date": "2024-01-16T14:20:00.000Z"},
+    "modifiedDate": {"$date": "2024-01-16T14:20:00.000Z"},
+    "_class": "com.tam.post.entity.Post"
+  },
+  {
+    "userId": "user789",
+    "content": "Check out my new video!",
+    "mediaUrl": "https://example.com/videos/video1.mp4",
+    "createdDate": {"$date": "2024-01-17T09:15:00.000Z"},
+    "modifiedDate": {"$date": "2024-01-17T11:45:00.000Z"},
+    "_class": "com.tam.post.entity.Post"
+  },
+  {
+    "userId": "user123",
+    "content": "Chia sẻ một số suy nghĩ về công việc hôm nay...",
+    "mediaUrl": "https://example.com/images/photo2.jpg",
+    "createdDate": {"$date": "2024-01-18T16:00:00.000Z"},
+    "modifiedDate": {"$date": "2024-01-18T16:00:00.000Z"},
+    "_class": "com.tam.post.entity.Post"
+  },
+  {
+    "userId": "user456",
+    "content": "Happy weekend everyone! 🎉",
+    "mediaUrl": null,
+    "createdDate": {"$date": "2024-01-19T08:30:00.000Z"},
+    "modifiedDate": {"$date": "2024-01-19T08:30:00.000Z"},
+    "_class": "com.tam.post.entity.Post"
+  },
+  {
+    "userId": "user123",
+    "content": "Học lập trình di động thật thú vị! 💻",
+    "mediaUrl": "https://example.com/images/coding.jpg",
+    "createdDate": {"$date": "2024-01-20T09:00:00.000Z"},
+    "modifiedDate": {"$date": "2024-01-20T09:00:00.000Z"},
+    "_class": "com.tam.post.entity.Post"
+  },
+  {
+    "userId": "user789",
+    "content": "Weekend vibes! ☀️🌊",
+    "mediaUrl": "https://example.com/images/beach.jpg",
+    "createdDate": {"$date": "2024-01-21T15:30:00.000Z"},
+    "modifiedDate": {"$date": "2024-01-21T15:30:00.000Z"},
+    "_class": "com.tam.post.entity.Post"
+  },
+  {
+    "userId": "user456",
+    "content": "Vừa hoàn thành dự án lớn! 🎯",
+    "mediaUrl": null,
+    "createdDate": {"$date": "2024-01-22T10:00:00.000Z"},
+    "modifiedDate": {"$date": "2024-01-22T10:00:00.000Z"},
+    "_class": "com.tam.post.entity.Post"
+  },
+  {
+    "userId": "user123",
+    "content": "Coffee time ☕️",
+    "mediaUrl": "https://example.com/images/coffee.jpg",
+    "createdDate": {"$date": "2024-01-23T08:15:00.000Z"},
+    "modifiedDate": {"$date": "2024-01-23T08:15:00.000Z"},
+    "_class": "com.tam.post.entity.Post"
+  },
+  {
+    "userId": "user789",
+    "content": "Chia sẻ một số tips học tập hiệu quả...",
+    "mediaUrl": null,
+    "createdDate": {"$date": "2024-01-24T14:45:00.000Z"},
+    "modifiedDate": {"$date": "2024-01-24T14:45:00.000Z"},
+    "_class": "com.tam.post.entity.Post"
+  }
+]
+

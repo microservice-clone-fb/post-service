@@ -45,6 +45,17 @@ public class SecurityConfig {
         return httpSecurity.build();
     }
 
+//    @Bean
+//    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+//        httpSecurity.authorizeHttpRequests(request -> request
+//                .anyRequest()
+//                .permitAll());
+//
+//        httpSecurity.csrf(AbstractHttpConfigurer::disable);
+//
+//        return httpSecurity.build();
+//    }
+
     @Bean
     JwtAuthenticationConverter jwtAuthenticationConverter() {
         JwtGrantedAuthoritiesConverter jwtGrantedAuthoritiesConverter = new JwtGrantedAuthoritiesConverter();

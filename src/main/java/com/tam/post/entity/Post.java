@@ -1,10 +1,8 @@
 package com.tam.post.entity;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
+import lombok.experimental.SuperBuilder;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
@@ -12,6 +10,9 @@ import java.time.Instant;
 
 @Getter
 @Setter
+@SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 @Document(value = "post")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Post extends AuditableBaseDocument {
@@ -30,4 +31,12 @@ public class Post extends AuditableBaseDocument {
         this.content = content;
         this.mediaUrl = mediaUrl;
     }
+    @Builder.Default
+    int likeCount = 0;
+
+    @Builder.Default
+    int commentCount = 0;
+
+    @Builder.Default
+    int shareCount = 0;
 }
