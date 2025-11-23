@@ -44,6 +44,9 @@ public class PostService {
 
         Post post = Post.builder()
                 .content(request.getContent())
+                .userId(authentication.getName())
+                .createdAt(Instant.now())
+                .lastUpdatedAt(Instant.now())
                 .mediaUrl(request.getMediaUrl())
                 .userId(userId)
                 .build();
@@ -93,6 +96,7 @@ public class PostService {
         return postMapper.toPostResponse(post);
     }
 
+    public PageResponse<PostResponse> getMyPosts(int page, int size) {
     public void deletePost(String postId) {
         Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new RuntimeException("Post not found"));
@@ -200,7 +204,7 @@ public class PostService {
             log.error("error while getting user profile: ", e);
         }
 
-        Sort sort = Sort.by("createdDate").descending();
+        Sort sort = Sort.by("createdAt").descending();
         Pageable pageable = PageRequest.of(page - 1, size, sort);
         var pageData = postRepository.findAllByUserId(userId, pageable);
 
@@ -216,6 +220,7 @@ public class PostService {
 
         var postList = pageData.getContent().stream().map(post -> {
             var postResponse = postMapper.toPostResponse(post);
+            postResponse.setCreated(dateTimeFormatter.format(post.getCreatedAt()));
 
             // Set formatted created time
             if (post.getCreatedDate() != null) {

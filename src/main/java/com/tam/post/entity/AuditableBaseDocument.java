@@ -38,7 +38,6 @@ public abstract class AuditableBaseDocument {
 
     private String history;
 
-
     public void addHistoryEntry(String entry) {
         if (this.history == null) {
             this.history = entry;
