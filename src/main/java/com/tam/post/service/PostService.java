@@ -44,9 +44,6 @@ public class PostService {
 
         Post post = Post.builder()
                 .content(request.getContent())
-                .userId(authentication.getName())
-                .createdAt(Instant.now())
-                .lastUpdatedAt(Instant.now())
                 .mediaUrl(request.getMediaUrl())
                 .userId(userId)
                 .build();
@@ -63,7 +60,7 @@ public class PostService {
         try {
             UserProfileResponse userProfile = profileClient.getProfile(userId).getResult();
             String displayName = (userProfile.getFirstName() != null ? userProfile.getFirstName() : "") +
-                                 (userProfile.getLastName() != null ? " " + userProfile.getLastName() : "");
+                    (userProfile.getLastName() != null ? " " + userProfile.getLastName() : "");
             postResponse.setUsername(displayName.trim().isEmpty() ? null : displayName.trim());
         } catch (Exception e) {
             log.error("Error while getting user profile: ", e);
@@ -96,7 +93,6 @@ public class PostService {
         return postMapper.toPostResponse(post);
     }
 
-    public PageResponse<PostResponse> getMyPosts(int page, int size) {
     public void deletePost(String postId) {
         Post post = postRepository.findById(postId)
                 .orElseThrow(() -> new RuntimeException("Post not found"));
@@ -139,7 +135,7 @@ public class PostService {
             try {
                 UserProfileResponse userProfile = profileClient.getProfile(post.getUserId()).getResult();
                 String displayName = (userProfile.getFirstName() != null ? userProfile.getFirstName() : "") +
-                                     (userProfile.getLastName() != null ? " " + userProfile.getLastName() : "");
+                        (userProfile.getLastName() != null ? " " + userProfile.getLastName() : "");
                 postResponse.setUsername(displayName.trim().isEmpty() ? null : displayName.trim());
             } catch (Exception e) {
                 log.error("error while getting user profile: ", e);
@@ -178,7 +174,7 @@ public class PostService {
         try {
             UserProfileResponse userProfile = profileClient.getProfile(post.getUserId()).getResult();
             String displayName = (userProfile.getFirstName() != null ? userProfile.getFirstName() : "") +
-                                 (userProfile.getLastName() != null ? " " + userProfile.getLastName() : "");
+                    (userProfile.getLastName() != null ? " " + userProfile.getLastName() : "");
             postResponse.setUsername(displayName.trim().isEmpty() ? null : displayName.trim());
         } catch (Exception e) {
             log.error("error while getting user profile: ", e);
@@ -204,14 +200,14 @@ public class PostService {
             log.error("error while getting user profile: ", e);
         }
 
-        Sort sort = Sort.by("createdAt").descending();
+        Sort sort = Sort.by("createdDate").descending();
         Pageable pageable = PageRequest.of(page - 1, size, sort);
         var pageData = postRepository.findAllByUserId(userId, pageable);
 
         final String username;
         if (userProfile != null) {
             String displayName = (userProfile.getFirstName() != null ? userProfile.getFirstName() : "") +
-                                 (userProfile.getLastName() != null ? " " + userProfile.getLastName() : "");
+                    (userProfile.getLastName() != null ? " " + userProfile.getLastName() : "");
             username = displayName.trim().isEmpty() ? null : displayName.trim();
         } else {
             username = null;
@@ -220,7 +216,6 @@ public class PostService {
 
         var postList = pageData.getContent().stream().map(post -> {
             var postResponse = postMapper.toPostResponse(post);
-            postResponse.setCreated(dateTimeFormatter.format(post.getCreatedAt()));
 
             // Set formatted created time
             if (post.getCreatedDate() != null) {
@@ -260,7 +255,7 @@ public class PostService {
         final String username;
         if (userProfile != null) {
             String displayName = (userProfile.getFirstName() != null ? userProfile.getFirstName() : "") +
-                                 (userProfile.getLastName() != null ? " " + userProfile.getLastName() : "");
+                    (userProfile.getLastName() != null ? " " + userProfile.getLastName() : "");
             username = displayName.trim().isEmpty() ? null : displayName.trim();
         } else {
             username = null;
